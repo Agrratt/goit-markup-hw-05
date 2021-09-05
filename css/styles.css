@@ -14,6 +14,15 @@
   --main-cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+@keyframes portfoliotext {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
@@ -560,6 +569,39 @@ ul {
   margin-bottom: 0px;
 }
 
+.project-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 18px;
+  line-height: 1.56;
+  padding: 63px 24px;
+  color: #ffffff;
+  background-color: rgba(33, 150, 243, 0.9);
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform var(--main-transition-duration) var(--main-cubic-bezier);
+}
+
+.project-item:focus .project-description,
+.project-item:hover .project-description {
+  transform: translateY(0%);
+  overflow: visible;
+}
+
+.project-foto {
+  display: block;
+}
+
 .project-name {
   padding: 20px 24px;
 
@@ -682,4 +724,56 @@ footer {
 
 .icon-network {
   fill: #ffffff;
+}
+
+/*----------------- модальное окно--------------- */
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  width: 528px;
+  height: 581px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: transform var(--main-transition-duration) var(--main-cubic-bezier);
+}
+
+.modal-button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+
+  right: 8px;
+  top: 8px;
+}
+
+.icon-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
