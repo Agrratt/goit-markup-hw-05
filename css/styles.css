@@ -68,7 +68,7 @@ ul {
 /*-------------- header------------ */
 
 .header {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #ececec;
 }
 
 .header-text {
@@ -333,7 +333,6 @@ ul {
 .doing-item-title {
   position: absolute;
   bottom: 0;
-  z-index: 2;
 
   background-color: rgba(47, 48, 58, 0.8);
   width: 370px;
@@ -519,7 +518,8 @@ ul {
   border: 0;
   transition: background-color var(--main-transition-duration)
       var(--main-cubic-bezier),
-    color var(--main-transition-duration) var(--main-cubic-bezier);
+    color var(--main-transition-duration) var(--main-cubic-bezier),
+    box-shadow var(--main-transition-duration) var(--main-cubic-bezier);
 }
 
 .portfolio-nav-button:hover,
@@ -548,14 +548,18 @@ ul {
 .project-item {
   margin-right: 30px;
   margin-bottom: 30px;
+}
+
+.project-item-link {
+  display: block;
 
   background: #ffffff;
   transition: box-shadow var(--main-transition-duration)
     var(--main-cubic-bezier);
 }
 
-.project-item:focus,
-.project-item:hover {
+.project-item-link:focus,
+.project-item-link:hover {
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -735,6 +739,9 @@ footer {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.2);
+  transition: visibility var(--main-transition-duration)
+      var(--main-cubic-bezier),
+    opacity var(--main-transition-duration) var(--main-cubic-bezier);
 }
 
 .backdrop.is-hidden {
@@ -756,7 +763,6 @@ footer {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   background-color: #ffffff;
-  transition: transform var(--main-transition-duration) var(--main-cubic-bezier);
 }
 
 .modal-button {
